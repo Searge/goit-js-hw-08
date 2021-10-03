@@ -1,0 +1,50 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "liveSassCompile.settings.formats": [
+      {
+        "format": "expanded",
+        "extensionName": ".css",
+        "savePath": "/css"
+      },
+      {
+        "extensionName": ".min.css",
+        "format": "compressed",
+        "savePath": "/css"
+      }
+    ],
+    "liveSassCompile.settings.excludeList": [
+      "**/node_modules/**",
+      ".vscode/**",
+      "css/**"
+    ],
+    "liveSassCompile.settings.generateMap": true,
+    "liveSassCompile.settings.autoprefix": [
+      "> 1%",
+      "last 2 versions"
+    ],
+    "attrsSorter.order": [
+      "class",
+      "id",
+      "name",
+      "data-.+",
+      "ng-.+",
+      "src",
+      "for",
+      "type",
+      "href",
+      "value",
+      "values",
+      "title",
+      "alt",
+      "role",
+      "aria-.+",
+      "$unknown$"
+    ]
+  }
+}
