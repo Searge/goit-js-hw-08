@@ -1,303 +1,117 @@
 # Критерії приймання
 
-- Створено репозиторій `goit-js-hw-06`.
+- Створено репозиторій `goit-js-hw-08`.
 - Домашня робота містить два посилання: на вихідні файли і робочу сторінку на
   `GitHub Pages`.
-- Завдання виконані у точній відповідності до ТЗ (забороняється змінювати
-  вихідний HTML завдання).
 - В консолі відсутні помилки і попередження під час відкриття живої сторінки
   завдання.
-- Імена змінних і функцій - зрозумілі та описові.
+- Проект зібраний за допомогою
+  [parcel-project-template](https://github.com/goitacademy/parcel-project-template).
 - Код відформатований за допомогою `Prettier`.
 
 ## Стартові файли
 
-У [папці src](./src) знайдеш стартові файли з готовою розміткою і підключеними
-файлами скриптів для кожного завдання. Скопіюй їх собі у проект. Для цього
-завантаж цей репозиторій як архів або використовуй
+У [папці src](./src) знайдеш стартові файли з готовою розміткою, стилями і
+підключеними файлами скриптів для кожного завдання. Скопіюй їх собі у проект,
+повністю замінивши папку `src` в
+[parcel-project-template](https://github.com/goitacademy/parcel-project-template).
+Для цього завантаж увесь цей репозиторій як архів або використовуй
 [сервіс DownGit](https://downgit.github.io/) для завантаження окремої папки з
 репозиторія.
 
-## Завдання 1
+## Завдання 1 - бібліотека `SimpleLightbox`
 
-HTML містить список категорій `ul#categories`.
+Виконуй це завдання у файлах `01-gallery.html` і `01-gallery.js`. Розбий його на
+декілька підзавдань:
 
-```html
-<ul id="categories">
-  <li class="item">
-    <h2>Animals</h2>
-    <ul>
-      <li>Cat</li>
-      <li>Hamster</li>
-      <li>Horse</li>
-      <li>Parrot</li>
-    </ul>
-  </li>
-  <li class="item">
-    <h2>Products</h2>
-    <ul>
-      <li>Bread</li>
-      <li>Prasley</li>
-      <li>Cheese</li>
-    </ul>
-  </li>
-  <li class="item">
-    <h2>Technologies</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Node.js</li>
-    </ul>
-  </li>
-</ul>
-```
+1. Додай бібліотеку [SimpleLightbox](https://simplelightbox.com/) як залежність
+   проекту, використовуючи `npm` (посилання на CDN з твоєї минулої роботи більше
+   не потрібне).
+2. Використовуй свій JavaScript код з попередньої домашньої роботи, але виконай
+   рефакторинг з урахуванням того, що бібліотека була встановлена через `npm`
+   (синтаксис import/export).
 
-Напиши скрипт, який:
-
-1. Порахує і виведе в консоль кількість категорій в `ul#categories`, тобто
-   елементів `li.item`.
-2. Для кожного элемента `li.item` у спику `ul#categories`, знайде і виведе в
-   консоль текст заголовку елемента (тегу `<h2>`) і кількість елементів в
-   категорії (усіх `<li>`, вкладених в нього).
-
-В результаті, в консолі будуть виведені наступні повідомлення.
-
-```bash
-Number of categories: 3
-
-Category: Animals
-Elements: 4
-
-Category: Products
-Elements: 3
-
-Category: Technologies
-Elements: 5
-```
-
-## Завдання 2
-
-HTML містить порожній список `ul#ingredients`.
-
-```html
-<ul id="ingredients"></ul>
-```
-
-JavaScript містить масив рядків.
+Для того щоб підключити CSS код бібліотеки в проект, необхідно додати ще один
+імпорт, крім того, що описаний в документації.
 
 ```js
-const ingredients = [
-  'Potatoes',
-  'Mushrooms',
-  'Garlic',
-  'Tomatos',
-  'Herbs',
-  'Condiments',
-];
+// Описаний в документації
+import SimpleLightbox from 'simplelightbox';
+// Додатковий імпорт стилів
+import 'simplelightbox/dist/simple-lightbox.min.css';
 ```
 
-Напиши скрипт, який для кожного елемента масиву `ingredients`:
+## Завдання 2 - відеоплеєр
 
-1. Створить окремий елемент `<li>`. Обов'язково використовуй метод
-   `document.createElement()`.
-2. Додасть назву інгредієнта як його текстовий вміст.
-3. Додасть елементу клас `item`.
-4. Після чого, вставить усі `<li>` за одну операцію у список `ul.ingredients`.
-
-## Завдання 3
-
-Напиши скрипт для створення галереї зображень на підставі масиву даних. HTML
-містить список `ul.gallery`.
+HTML містить `<iframe>` з відео для Vimeo плеєра. Напиши скрипт, який буде
+зберігати поточний час відтворення відео у локальне сховище і, після
+перезавантаження сторінки, продовжувати відтворювати відео з цього часу.
 
 ```html
-<ul class="gallery"></ul>
+<iframe
+  id="vimeo-player"
+  src="https://player.vimeo.com/video/236203659"
+  width="640"
+  height="360"
+  frameborder="0"
+  allowfullscreen
+  allow="autoplay; encrypted-media"
+></iframe>
 ```
 
-Використовуй масив об'єктів `images` для створення елементів `<img>`, вкладених
-в `<li>`. Для створення розмітки використовуй шаблонні рядки і метод
-`insertAdjacentHTML()`.
+Виконуй це завдання у файлах `02-video.html` і `02-video.js`. Розбий його на
+декілька підзавдань:
 
-- Усі елементи галереї повинні додаватися в DOM за одну операцію додавання.
-- Додай мінімальне оформлення галереї флексбоксами або грідами через CSS класи.
+1. Ознайомся з
+   [документацією](https://github.com/vimeo/player.js/#vimeo-player-api)
+   бібліотеки Vimeo плеєра.
+2. Додай бібліотеку як залежність проекту через `npm`.
+3. Ініціалізуй плеєр у файлі скрипта як це описано в секції
+   [pre-existing player](https://github.com/vimeo/player.js/#pre-existing-player),
+   але враховуй, що у тебе плеєр доданий як npm пакет, а не через CDN.
+4. Вивчи документацію методу
+   [on()](https://github.com/vimeo/player.js/#onevent-string-callback-function-void)
+   і почни відстежувати подію
+   [timeupdate](https://github.com/vimeo/player.js/#events) - оновлення часу
+   відтворення.
+5. Зберігай час відтворення у локальне сховище. Нехай ключем для сховища буде
+   рядок `"videoplayer-current-time"`.
+6. Під час перезавантаження сторінки скористайся методом
+   [setCurrentTime()](https://github.com/vimeo/player.js/#setcurrenttimeseconds-number-promisenumber-rangeerrorerror)
+   з метою відновлення відтворення зі збереженої позиції.
+7. Додай до проекту бібілотеку
+   [lodash.throttle](https://www.npmjs.com/package/lodash.throttle) і зроби так,
+   щоб час відтворення оновлювався у сховищі не частіше, ніж раз на секунду.
 
-```js
-const images = [
-  {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
-  },
-  {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
-  },
-  {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
-  },
-];
-```
+## Завдання 3 - форма зворотного зв'язку
 
-## Завдання 4
-
-Лічильник складається зі спану і кнопок, які по кліку повинні збільшувати і
-зменшувати його значення на одиницю.
+HTML містить розмітку форми. Напиши скрипт, який буде зберігати значення полів у
+локальне сховище, коли користувач щось друкує.
 
 ```html
-<div id="counter">
-  <button type="button" data-action="decrement">-1</button>
-  <span id="value">0</span>
-  <button type="button" data-action="increment">+1</button>
-</div>
-```
-
-- Створи змінну `counterValue`, в якій буде зберігатися поточне значення
-  лічильника та ініціалізуй її значенням `0`.
-- Додай слухачів кліків до кнопок, всередині яких збільшуй або зменшуй значення
-  лічильника.
-- Оновлюй інтерфейс новим значенням змінної `counterValue`.
-
-## Завдання 5
-
-Напиши скрипт, який під час набору тексту в інпуті `input#name-input` (подія
-`input`), підставляє його поточне значення в `span#name-output`. Якщо інпут
-порожній, у спані повинен відображатися рядок `"Anonymous"`.
-
-```html
-<input type="text" id="name-input" placeholder="Please enter your name" />
-<h1>Hello, <span id="name-output">Anonymous</span>!</h1>
-```
-
-## Завдання 6
-
-Напиши скрипт, який під час втрати фокусу на інпуті (подія `blur`), перевіряє
-його вміст щодо правильної кількості введених символів.
-
-```html
-<input
-  type="text"
-  id="validation-input"
-  data-length="6"
-  placeholder="Please enter 6 symbols"
-/>
-```
-
-- Яка кількість смиволів повинна бути в інпуті, зазначається в його атрибуті
-  `data-length`.
-- Якщо введена правильна кількість символів, то `border` інпуту стає зеленим,
-  якщо неправильна кількість - червоним.
-
-Для додавання стилів використовуй CSS-класи `valid` і `invalid`, які ми вже
-додали у вихідні файли завдання.
-
-```css
-#validation-input {
-  border: 3px solid #bdbdbd;
-}
-
-#validation-input.valid {
-  border-color: #4caf50;
-}
-
-#validation-input.invalid {
-  border-color: #f44336;
-}
-```
-
-## Завдання 7
-
-Напиши скрипт, який реагує на зміну значення `input#font-size-control` (подія
-`input`) і змінює інлайн-стиль `span#text`, оновлюючи властивість `font-size`. В
-результаті, перетягуючи повзунок, буде змінюватися розмір тексту.
-
-```html
-<input id="font-size-control" type="range" min="16" max="96" />
-<br />
-<span id="text">Abracadabra!</span>
-```
-
-## Завдання 8
-
-Напиши скрипт управління формою логіна.
-
-```html
-<form class="login-form">
+<form class="feedback-form" autocomplete="off">
   <label>
     Email
-    <input type="email" name="email" />
+    <input type="email" name="email" autofocus />
   </label>
   <label>
-    Password
-    <input type="password" name="password" />
+    Message
+    <textarea name="message" rows="8"></textarea>
   </label>
-  <button type="submit">Login</button>
+  <button type="submit">Submit</button>
 </form>
 ```
 
-1. Обробка відправлення форми `form.login-form` повинна відбуватися відповідно
-   до події `submit`.
-2. Під час відправлення форми сторінка не повинна перезавантажуватися.
-3. Якщо у формі є незаповнені поля, виводь `alert` з попередженням про те, що
-   всі поля повинні бути заповнені.
-4. Якщо користувач заповнив усі поля і відправив форму, збери значення полів в
-   об'єкт, де ім'я поля буде ім'ям властивості, а значення поля - значенням
-   властивості. Для доступу до елементів форми використовуй властивість
-   `elements`.
-5. Виведи об'єкт із введеними даними в консоль і очисти значення полів форми
-   методом `reset`.
+Виконуй це завдання у файлах `03-feedback.html` і `03-feedback.js`. Розбий його
+на декілька підзавдань:
 
-## Завдання 9
-
-Напиши скрипт, який змінює кольори фону елемента `<body>` через інлайн-стиль по
-кліку на `button.change-color` і виводить значення кольору в `span.color`.
-
-```html
-<div class="widget">
-  <p>Background color: <span class="color">-</span></p>
-  <button type="button" class="change-color">Change color</button>
-</div>
-```
-
-Для генерування випадкового кольору використовуй функцію `getRandomHexColor`.
-
-```js
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-```
-
-## Завдання 10 (виконувати не обов'язково)
-
-Напиши скрипт створення і очищення колекції елементів. Користувач вводить
-кількість елементів в `input` і натискає кнопку `Створити`, після чого
-рендериться колекція. Натисненням на кнопку `Очистити`, колекція елементів
-очищається.
-
-```html
-<div id="controls">
-  <input type="number" min="1" max="100" step="1" />
-  <button type="button" data-create>Create</button>
-  <button type="button" data-destroy>Destroy</button>
-</div>
-
-<div id="boxes"></div>
-```
-
-Створи функцію `createBoxes(amount)`, яка приймає один параметр - число. Функція
-створює стільки `<div>`, скільки вказано в `amount` і додає їх у `div#boxes`.
-
-1. Розміри найпершого `<div>` - 30px на 30px.
-2. Кожен елемент після першого повинен бути ширшим і вищим від попереднього на
-   10px.
-3. Всі елементи повинні мати випадковий колір фону у форматі HEX. Використовуй
-   готову функцію `getRandomHexColor` для отримання кольору.
-
-```js
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-```
-
-Створи функцію `destroyBoxes()`, яка очищає вміст `div#boxes`, у такий спосіб
-видаляючи всі створені елементи.
+1. Відстежуй на формі подію `input`, і щоразу записуй у локальне сховище об'єкт
+   з полями `email` і `message`, у яких зберігай поточні значення полів форми.
+   Нехай ключем для сховища буде рядок `"feedback-form-state"`.
+2. Під час завантаження сторінки перевіряй стан сховища, і якщо там є збережені
+   дані, заповнюй ними поля форми. В іншому випадку поля повинні бути порожніми.
+3. Під час сабміту форми очищуй сховище і поля форми, а також виводь у консоль
+   об'єкт з полями `email`, `message` та їхніми поточними значеннями.
+4. Зроби так, щоб сховище оновлювалось не частіше, ніж раз на 500 мілісекунд.
+   Для цього додай до проекту і використовуй бібліотеку
+   [lodash.throttle](https://www.npmjs.com/package/lodash.throttle).
