@@ -1,17 +1,13 @@
-# EditorConfig is awesome: https://EditorConfig.org
-
-# top-most EditorConfig file
 root = true
 
 [*]
 indent_style = space
+# Если предпочитаете отступы в 4 пробела в html/css/js, заменить тут 2 на 4
 indent_size = 2
-end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
-insert_final_newline = true
+insert_final_newline = false
 
-# 4 space indentation
-[*.py]
-indent_style = space
-indent_size = 4
+
+[*.{json,md,yaml}]
+indent_size = 2
