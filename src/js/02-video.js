@@ -19,7 +19,7 @@ function timePlayer() {
 
 player.on('timeupdate', throttle(timePlayer, 1000));
 
-const currentTime = localStorage.getItem(STORAGE_KEY);
+const currentTime = localStorage.getItem(STORAGE_KEY) || 0;
 
 player.setCurrentTime(currentTime).catch(function (error) {
   console.log(error);
